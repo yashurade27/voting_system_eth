@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "chainId": 31337,
+  "contract": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "electionId": 3,
+  "electionTitle": "Best Final Year Project 2026",
+  "candidateId": 0,
+  "candidateName": "SealedBallot (Blockchain)",
+  "voter": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+  "salt": "0x4cc11f98fa640fe783cd7dad6c450d59fd362435aa7a2202f54a9c73ea1a8828",
+  "commitment": "0xa0d61c84b1764968a3535042a64a44c9f9d9228b61d0213149c8380f2f2318cf",
+  "createdAt": 1791570285,
+  "txHash": "0x9a299ed1fed56867f1e027e614a5a1c1896c2ff9b292e1cb3daed51bc4d48f98"
+}

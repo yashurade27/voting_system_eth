@@ -1,0 +1,15 @@
+{
+  "name": "sealed-ballot",
+  "private": true,
+  "description": "Commit–reveal voting system on Ethereum (Solidity + Hardhat + Next.js)",
+  "scripts": {
+    "setup": "npm install --prefix contracts && npm install --prefix web",
+    "chain": "npm run node --prefix contracts",
+    "deploy": "npm run deploy:local --prefix contracts && npm run seed:local --prefix contracts",
+    "deploy:empty": "npm run deploy:local --prefix contracts",
+    "dev": "npm run dev --prefix web",
+    "test": "npm test --prefix contracts",
+    "gas": "npm run gas --prefix contracts",
+    "build": "npm run compile --prefix contracts && npm run build --prefix web"
+  }
+}

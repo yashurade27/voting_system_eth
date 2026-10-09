@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/*
+  Design tokens — derived from Refero style references:
+  primary: Uniswap Cup (stark #f2f2f2 canvas, black ink, white cards, 0px corners,
+           monospace numerals, single fuchsia accent for leaders / active states)
+  borrowed: CQCM (filled black pill for the primary action),
+            Sandclock (outlined pill "Connect wallet" button)
+*/
+@theme {
+  --color-canvas: #f2f2f2;
+  --color-ink: #000000;
+  --color-card: #ffffff;
+  --color-graphite: #222222;
+  --color-mist: #fef4ff;
+  --color-flare: #f50db4;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+
+  --radius-none: 0px;
+  --radius-pill: 9999px;
+}
+
+html {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum" 1;
+}
+
+::selection {
+  background: var(--color-flare);
+  color: var(--color-card);
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: var(--radius-pill);
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition:
+      background-color 120ms,
+      color 120ms,
+      border-color 120ms;
+    cursor: pointer;
+  }
+  .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+  .btn-primary {
+    background: var(--color-ink);
+    color: var(--color-card);
+  }
+  .btn-primary:not(:disabled):hover {
+    background: var(--color-graphite);
+  }
+  .btn-outline {
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+  }
+  .btn-outline:not(:disabled):hover {
+    background: var(--color-ink);
+    color: var(--color-card);
+  }
+  .btn-ghost {
+    padding: 0;
+    color: var(--color-flare);
+    font-weight: 500;
+  }
+  .btn-ghost:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .field {
+    width: 100%;
+    background: var(--color-card);
+    border: 1px solid var(--color-ink);
+    border-radius: 0;
+    padding: 10px 12px;
+    font-size: 15px;
+    outline: none;
+  }
+  .field:focus {
+    border-color: var(--color-flare);
+    box-shadow: inset 0 0 0 1px var(--color-flare);
+  }
+
+  .sealed {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--color-ink) 0 2px,
+      transparent 2px 6px
+    );
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.live-dot {
+  animation: blink 1.2s steps(1) infinite;
+}
